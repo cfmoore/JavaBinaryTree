@@ -1,10 +1,19 @@
 import java.io.*;
 
+/**
+ * Driver Class for the binary tree
+ * @author chad
+ *
+ */
 public class Test {
 
-	public static void fileWrite(int number, int node)
+	/**
+	 * 
+	 * @param number The class numbe with the node position and the number
+	 */
+	public static void fileWrite(Number number)
 	{
-		if(node == 0)
+		if(number.getSpot() == 0)
 		{
 			try {
 				FileWriter fw = new FileWriter("list.txt");
@@ -15,7 +24,7 @@ public class Test {
 		}
 		try {
 			FileWriter fw = new FileWriter("list.txt", true);
-			fw.append("Node Numeber: " + node +" Number: "+ number+"\n");
+			fw.append("Node Numeber: " + number.getSpot() +" Number: "+ number.getNumber()+"\n");
 			fw.close();
 		} catch (IOException e) {
 			System.out.println("Something went wrong");
@@ -33,23 +42,13 @@ public class Test {
 			Node node = new Node();
 			Number num = new Number();
 			num.setNumber((int)random);
+			num.setSpot(i);
 			node.setNumber(num);
 			node.insertNode(node, root);
 			if(root == null) root = node;
-			fileWrite((int)random, i);
+			fileWrite(num);
 		}
 		System.out.print(root.treePrinterBredthFirst());
-		/**try {
-			FileWriter fc = new FileWriter("Nodes.txt");
-			fc.flush();
-			fc.close();
-			FileWriter fw = new FileWriter("Nodes.txt",true);
-			String writer = root.treePrinter(root);
-			fw.append(writer);
-			fw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 		System.out.println("done");
 		
 	}

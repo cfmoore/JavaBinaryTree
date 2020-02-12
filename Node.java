@@ -1,18 +1,26 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * Node Class for constructor
+ * @author chad
+ *
+ */
 public class Node {
-	int depth = 0;
-	Number num;
-	Node lnode;
-	Node  rnode;
- 	Node parentNode;
-	String printer =""; 
-	int arrayplace = 0;
-	ArrayList<Node> nodeList = new ArrayList<Node>();
+	int depth = 0;//TODO Implement node balance
+	Number num; //Number 
+	Node lnode; //Left Child Node
+	Node  rnode; //Right childe node
+ 	Node parentNode; //The parent node for backtracking purposes
+	String printer =""; //A String for printing statements
+	int arrayplace = 0; //TODO Breadthh First Search
+	ArrayList<Node> nodeList = new ArrayList<Node>();//TODO Breadth FIrst Search
 	
-	
+	/**
+	 * Recursively insert nodes, to be removed to move to tree builder class
+	 * @param node
+	 * @param parent
+	 */
 	public void insertNode(Node node, Node parent)
 	{
 		//IF there is no nodes in the tree, start a fresh node in tree
@@ -54,6 +62,9 @@ public class Node {
 		//Build checker for balance	
 	}
 	
+	/**
+	 * TO BE rEMOVED AND PUT INTO TREE BUILDER CLASS
+	 */
 	public String treePrinterInOrder(Node node)
 	{
 		//Start all the way down the left side of tree for least to greatest
@@ -66,13 +77,21 @@ public class Node {
 		return printer; //return premade string for file IO
 	}
 	
+	/**
+	 * TODO PRINT A BREADTH FIRST TREE
+	 * @return a String of the nodes in breadth first order
+	 */
 	public String treePrinterBredthFirst()
 	{
 		for(int i = 0; i < nodeList.size(); i++) System.out.println(nodeList.get(i).getNum().getNumber()+" Depth: "+nodeList.get(i).getDepth()+"\n");
 		return printer;
 	}
 	
-	
+	/**
+	 * TODO FInish tree balancer, possibly move to tree builder
+	 * @param checkedNode node that has already been checked for level
+	 * @return boolean of whether the tree is balanced
+	 */
 	public boolean checkBalance(Node checkedNode)
 	{
 		boolean checkResult = true;//Set bool to true so if error occurs balance doesnt happen
@@ -89,6 +108,12 @@ public class Node {
 		
 		return checkResult;
 	}
+	
+	/**\
+	 * Below are the standard getters and setters for the class
+	 * 
+	 */
+	
 	
 	public void setNumber(Number num)
 	{
